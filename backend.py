@@ -2,43 +2,52 @@ import os
 from dotenv import load_dotenv
 from litellm import completion
 
+# Try to import streamlit to access st.secrets when running on Streamlit Cloud
+try:
+    import streamlit as st
+    _HAS_STREAMLIT = True
+except Exception:
+    _HAS_STREAMLIT = False
+
 load_dotenv()
 
+def _get_secret(key: str, default: str | None = None) -> str | None:
+    """
+    Read config in priority order:
+    1) st.secrets (Streamlit Cloud)
+    2) environment variable
+    Returns stripped string or default.
+    """
+    val = None
+    if _HAS_STREAMLIT:
+        try:
+            if key in st.secrets:
+                val = st.secrets.get(key, None)
+        except Exception:
+            # st.secrets may not be available in local runs
+            pass
+    if val is None:
+        val = os.getenv(key, default)
+    # Normalize: convert non-str types and strip whitespace/newlines
+    if isinstance(val, (str, bytes)):
+        val = val.decode() if isinstance(val, bytes) else val
+        val = val.strip()
+    return val
+
 # ====== Configuration ======
+API_BASE = _get_secret("GOOGLE_GEMINI_BASE_URL") or _get_secret("LITELLM_API_BASE") or "https://llm.lingarogroup.com"
+API_KEY = _get_secret("GEMINI_API_KEY") or _get_secret("GOOGLE_API_KEY") or _get_secret("OPENAI_API_KEY")
 
-# Proxy base URL (Lingaro GenAI Proxy)
-API_BASE = (
-    os.getenv("GOOGLE_GEMINI_BASE_URL")
-    or os.getenv("LITELLM_API_BASE")
-    or "https://llm.lingarogroup.com"
-)
-
-# API key from the proxy (format: sk-xxxxxxxx)
-API_KEY = (
-    os.getenv("GEMINI_API_KEY")        # preferred
-    or os.getenv("GOOGLE_API_KEY")     # fallback if someone reused this name
-    or os.getenv("OPENAI_API_KEY")     # last-resort fallback
-)
-
-# Provider selection:
-#   - "openai" -> use OpenAI-compatible path with model "openai/gemini-3-flash"
-#   - "gemini" -> use native Gemini provider "gemini/gemini-3-flash"
-LLM_PROVIDER = os.getenv("LLM_PROVIDER", "openai").strip().lower()
+LLM_PROVIDER = (_get_secret("LLM_PROVIDER") or "openai").lower()
 if LLM_PROVIDER not in {"openai", "gemini"}:
     LLM_PROVIDER = "openai"
 
-# Model id from the proxy models list:
-# The proxy returns:
-#   { "id": "gemini-3-flash", "owned_by": "openai", ... }
-# So in OpenAI-compatible mode we call: model="openai/gemini-3-flash"
-BASE_MODEL_ID = os.getenv("BASE_MODEL_ID", "gemini-3-flash").strip()
+BASE_MODEL_ID = _get_secret("BASE_MODEL_ID") or "gemini-3-flash"
 
-MODEL_NAME = os.getenv("LLM_MODEL_NAME")  # optional override
+# Allow complete override; otherwise construct provider-prefixed model
+MODEL_NAME = _get_secret("LLM_MODEL_NAME")
 if not MODEL_NAME:
-    if LLM_PROVIDER == "openai":
-        MODEL_NAME = f"openai/{BASE_MODEL_ID}"
-    else:
-        MODEL_NAME = f"gemini/{BASE_MODEL_ID}"
+    MODEL_NAME = f"{LLM_PROVIDER}/{BASE_MODEL_ID}"
 
 def load_system_prompt():
     try:
@@ -52,14 +61,16 @@ def load_system_prompt():
 
 def _validate_env():
     problems = []
-    if not API_KEY or not API_KEY.startswith("sk-"):
+    # Key should exist and start with sk-
+    if not API_KEY or not str(API_KEY).startswith("sk-"):
         problems.append("Missing or invalid GEMINI_API_KEY (should start with 'sk-').")
-    if not API_BASE.startswith("http"):
-        problems.append("Invalid proxy base URL (GOOGLE_GEMINI_BASE_URL). Expected full https URL.")
-    # For LiteLLM, model should usually include provider prefix.
+    # Base URL should be a proper URL
+    if not API_BASE or not str(API_BASE).startswith("http"):
+        problems.append("Invalid proxy base URL. Set GOOGLE_GEMINI_BASE_URL to full https URL.")
+    # Model should include provider prefix
     if "/" not in MODEL_NAME:
         problems.append("LLM model must include provider, e.g., 'openai/gemini-3-flash' or 'gemini/gemini-3-flash'.")
-    # Small consistency hint if provider/model mismatch is likely
+    # Provider/model consistency hints
     if LLM_PROVIDER == "openai" and not MODEL_NAME.startswith("openai/"):
         problems.append("LLM_PROVIDER=openai but MODEL_NAME does not start with 'openai/'.")
     if LLM_PROVIDER == "gemini" and not MODEL_NAME.startswith("gemini/"):
@@ -69,28 +80,26 @@ def _validate_env():
 def generate_response(user_message: str, history: list, temperature: float = 0.4) -> str:
     """
     Generate a chat response via LiteLLM routed to Lingaro's GenAI Proxy.
-
     :param user_message: latest user text
-    :param history: prior turns in OpenAI chat format: [{"role": "user"|"assistant", "content": "..."}]
+    :param history: prior turns in OpenAI chat format: [{"role":"user"|"assistant","content":"..."}]
     :param temperature: 0.0 - 1.0
-    :return: assistant response text
     """
     env_issues = _validate_env()
     if env_issues:
         bullet = " • " + "\n • ".join(env_issues)
+        hint_location = "Streamlit → Settings → Secrets" if _HAS_STREAMLIT else "your environment/.env"
         return (
             "⚠️ Configuration error:\n"
             f"{bullet}\n\n"
-            "Fix:\n"
-            "- Set GEMINI_API_KEY=sk-... (proxy key)\n"
-            "- Set GOOGLE_GEMINI_BASE_URL=https://llm.lingarogroup.com\n"
-            "- Ensure MODEL_NAME includes provider, e.g., 'openai/gemini-3-flash' (OpenAI mode) "
-            "or 'gemini/gemini-3-flash' (native Gemini mode)."
+            f"Fix:\n"
+            f"- Set GEMINI_API_KEY=sk-... (proxy key) in {hint_location}\n"
+            f"- Set GOOGLE_GEMINI_BASE_URL=https://llm.lingarogroup.com\n"
+            f"- Ensure MODEL_NAME includes provider; current resolved MODEL_NAME is '{MODEL_NAME}'."
         )
 
     system_prompt = load_system_prompt()
 
-    # Build messages (avoid double-adding current user turn)
+    # Build messages (avoid double-adding the current user turn)
     messages = [{"role": "system", "content": system_prompt}]
     for m in history:
         if m.get("role") in {"user", "assistant"} and isinstance(m.get("content"), str):
@@ -102,7 +111,7 @@ def generate_response(user_message: str, history: list, temperature: float = 0.4
         resp = completion(
             model=MODEL_NAME,
             api_key=API_KEY,
-            api_base=API_BASE,           # route through Lingaro proxy
+            api_base=API_BASE,
             messages=messages,
             temperature=temperature,
             stream=False,
@@ -115,6 +124,7 @@ def generate_response(user_message: str, history: list, temperature: float = 0.4
             f"Model: {MODEL_NAME}",
             f"Base URL: {API_BASE}",
             f"Key set: {'yes' if bool(API_KEY) else 'no'} "
-            f"(format ok: {'yes' if (API_KEY and API_KEY.startswith('sk-')) else 'no'})",
+            f"(format ok: {'yes' if (API_KEY and str(API_KEY).startswith('sk-')) else 'no'})",
+            f"Using st.secrets: {'yes' if _HAS_STREAMLIT else 'no'}",
         ]
         return f"⚠️ Error: {type(e).__name__}: {str(e)}\n\nDiagnostics:\n- " + "\n- ".join(details)
