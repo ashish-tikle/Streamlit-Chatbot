@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from litellm import completion
+from typing import Optional
 
 # Try to import streamlit to access st.secrets when running on Streamlit Cloud
 try:
@@ -11,7 +12,8 @@ except Exception:
 
 load_dotenv()
 
-def _get_secret(key: str, default: str | None = None) -> str | None:
+# def _get_secret(key: str, default: str | None = None) -> str | None:
+def _get_secret(key: str, default: Optional[str] = None) -> Optional[str]:
     """
     Read config in priority order:
     1) st.secrets (Streamlit Cloud)
