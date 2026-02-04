@@ -6,7 +6,7 @@ import streamlit as st
 # Page config (MUST be first Streamlit command)
 # ------------------------------
 st.set_page_config(
-    page_title="Gemini Chatbot",
+    page_title="Gemini Chatbot V2",
     page_icon="🤖",
     layout="centered",
     initial_sidebar_state="expanded",
