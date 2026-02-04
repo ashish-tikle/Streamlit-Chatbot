@@ -100,7 +100,7 @@ if "user_id" not in st.session_state:
 # ------------------------------
 col_left, col_right = st.columns([0.8, 0.2])
 with col_left:
-    st.title("🤖 Gemini Chatbot")
+    st.title("🤖 Gemini Chatbot V2")
     st.caption(
         "Model: **{}** • Endpoint: `{}`".format(MODEL_NAME, st.session_state.api_base)
     )
