@@ -1,0 +1,128 @@
+[build-system]
+requires = ["setuptools>=65.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "streamlit-chatbot"
+version = "1.0.0"
+description = "Production-ready Streamlit chatbot with LiteLLM + Langfuse observability"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "streamlit==1.30.0",
+    "python-dotenv==1.0.0",
+    "litellm==1.49.7",
+    "google-generativeai==0.4.0",
+    "langfuse==2.12.0",
+    "tenacity==8.2.3",
+    "pandas==2.1.4",
+    "plotly==5.18.0",
+    "requests==2.31.0",
+    "pybreaker==1.0.1",
+    "ratelimit==2.2.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==7.4.3",
+    "pytest-asyncio==0.21.1",
+    "pytest-cov>=4.1.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+    "types-requests>=2.31.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # isort
+    "N",   # pep8-naming
+    "W",   # pycodestyle warnings
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+]
+ignore = [
+    "E501",  # line too long (handled by formatter)
+    "B008",  # do not perform function calls in argument defaults
+]
+exclude = [
+    ".git",
+    "__pycache__",
+    "venv",
+    ".venv",
+    "build",
+    "dist",
+]
+
+[tool.ruff.per-file-ignores]
+"tests/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = [
+    "-v",
+    "--cov=backend",
+    "--cov=app",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+markers = [
+    "smoke: Smoke tests for critical functionality",
+    "integration: Integration tests requiring external services",
+    "unit: Unit tests for isolated components",
+]
+
+[tool.coverage.run]
+omit = [
+    "tests/*",
+    "venv/*",
+    ".venv/*",
+    "*/__pycache__/*",
+    "*/site-packages/*",
+    "test_*.py",
+    "verify_setup.py",
+    "check_integration.py",
+]
+branch = true
+
+[tool.coverage.report]
+precision = 2
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "pass",
+]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false  # Gradually enable
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+exclude = [
+    "venv/",
+    ".venv/",
+    "tests/",
+]
+
+[[tool.mypy.overrides]]
+module = [
+    "litellm.*",
+    "langfuse.*",
+    "plotly.*",
+    "streamlit.*",
+]
+ignore_missing_imports = true

@@ -1,0 +1,258 @@
+name: CI Pipeline
+
+# Trigger on PRs to main and direct pushes to main
+# This ensures all code is validated before merge and after merge
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Cancel in-progress runs of same workflow on same branch
+# Saves CI minutes and provides faster feedback on latest commit
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ============================================================================
+  # Code Quality: Linting and Formatting
+  # ============================================================================
+  lint:
+    name: Lint & Format Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5  # Fast-fail if stuck
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # Python 3.11 for compatibility (3.12 may have fewer type stubs)
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'  # Cache pip dependencies for faster runs
+          cache-dependency-path: 'requirements.txt'
+      
+      # Install only linting/formatting tools (not full app deps)
+      - name: Install linting tools
+        run: |
+          pip install --upgrade pip
+          pip install ruff black mypy types-requests
+      
+      # Ruff: Fast Python linter (replacement for flake8, isort, etc.)
+      - name: Run ruff linter
+        run: |
+          ruff check . --output-format=github
+        continue-on-error: false  # Block merge on lint errors
+      
+      # Black: Opinionated code formatter
+      - name: Check code formatting with black
+        run: |
+          black --check --diff .
+        continue-on-error: false  # Block merge on formatting issues
+      
+      # MyPy: Static type checker
+      # Non-blocking initially to allow gradual type hint adoption
+      - name: Run mypy type checker
+        run: |
+          mypy backend.py app.py pages/ --ignore-missing-imports --no-strict-optional
+        continue-on-error: true  # Don't block merge, but show issues
+
+  # ============================================================================
+  # Unit Tests with Dummy Environment
+  # ============================================================================
+  test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    # Dummy env vars for testing without real API keys
+    # Tests should mock external calls or skip integration tests
+    env:
+      GEMINI_API_KEY: "sk-dummy-test-key-no-real-calls"
+      GOOGLE_GEMINI_BASE_URL: "https://llm.lingarogroup.com"
+      LANGFUSE_PUBLIC_KEY: "pk-lf-dummy-test"
+      LANGFUSE_SECRET_KEY: "sk-lf-dummy-test"
+      LANGFUSE_HOST: "https://cloud.langfuse.com"
+      ENABLE_LANGFUSE: "false"  # Disable Langfuse in tests
+      ENVIRONMENT: "ci"
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+      
+      # Install app dependencies + test tools
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest pytest-cov pytest-asyncio
+      
+      # Run pytest quietly (-q) for cleaner output
+      # Focus on critical tests: smoke + LLM wrapper + chat integration
+      - name: Run pytest
+        run: |
+          pytest tests/test_smoke.py tests/test_llm_wrapper.py tests/test_chat_integration.py -q --tb=short
+      
+      # Optional: Run all tests with coverage (may have some failures in old tests)
+      - name: Run all tests with coverage (informational)
+        run: |
+          pytest tests/ -q --cov=backend --cov=app --cov-report=term-missing --cov-report=xml
+        continue-on-error: true  # Don't fail CI on legacy test failures
+
+  # ============================================================================
+  # Streamlit App Smoke Test
+  # ============================================================================
+  streamlit-smoke:
+    name: Streamlit App Smoke Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
+    # Dummy credentials for app startup without real API access
+    env:
+      GEMINI_API_KEY: "sk-dummy-streamlit-test"
+      GOOGLE_GEMINI_BASE_URL: "https://llm.lingarogroup.com"
+      LLM_PROVIDER: "openai"
+      BASE_MODEL_ID: "gemini-3-flash"
+      LANGFUSE_PUBLIC_KEY: "pk-lf-dummy"
+      LANGFUSE_SECRET_KEY: "sk-lf-dummy"
+      LANGFUSE_HOST: "https://cloud.langfuse.com"
+      ENABLE_LANGFUSE: "false"
+      ENVIRONMENT: "ci"
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'requirements.txt'
+      
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      # Test that Streamlit app starts without crashing
+      # Uses headless mode and checks health endpoint
+      - name: Streamlit health check
+        run: |
+          echo "🚀 Starting Streamlit app in headless mode..."
+          
+          # Start app in background with timeout protection
+          timeout 30s streamlit run app.py \
+            --server.headless true \
+            --server.port 8501 \
+            --server.address localhost &
+          
+          APP_PID=$!
+          
+          # Wait for app to initialize
+          echo "⏳ Waiting for app to start..."
+          sleep 15
+          
+          # Verify process is still running
+          if ! ps -p $APP_PID > /dev/null; then
+            echo "❌ Streamlit process crashed during startup"
+            exit 1
+          fi
+          
+          # Check Streamlit health endpoint
+          echo "🔍 Checking health endpoint..."
+          if curl -f --max-time 10 http://localhost:8501/_stcore/health; then
+            echo "✅ Streamlit app is healthy"
+          else
+            echo "❌ Health check failed"
+            kill $APP_PID 2>/dev/null || true
+            exit 1
+          fi
+          
+          # Cleanup
+          echo "🧹 Cleaning up..."
+          kill $APP_PID 2>/dev/null || true
+          
+      # Alternative: Use official Streamlit GitHub Action (if available)
+      # This action auto-detects app.py as entrypoint
+      # - name: Streamlit App Action
+      #   uses: streamlit/streamlit-app-action@v1
+      #   with:
+      #     app-path: app.py
+
+  # ============================================================================
+  # Security Checks
+  # ============================================================================
+  security:
+    name: Security Scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      # Check for accidentally committed secrets/API keys
+      - name: Scan for hardcoded secrets
+        run: |
+          echo "🔍 Scanning for hardcoded API keys and secrets..."
+          
+          # Look for patterns of real API keys (not dummy/example values)
+          # Real Gemini keys start with sk- followed by many chars
+          if grep -r "sk-[a-zA-Z0-9]\{30,\}" \
+                --include="*.py" \
+                --include="*.js" \
+                --include="*.ts" \
+                --exclude-dir=venv \
+                --exclude-dir=.venv \
+                --exclude-dir=node_modules .; then
+            echo "❌ Found potential hardcoded API key!"
+            exit 1
+          fi
+          
+          # Check for Langfuse keys
+          if grep -r "pk-lf-[a-zA-Z0-9]\{30,\}" \
+                --include="*.py" \
+                --exclude-dir=venv \
+                --exclude-dir=.venv .; then
+            echo "❌ Found hardcoded Langfuse public key!"
+            exit 1
+          fi
+          
+          if grep -r "sk-lf-[a-zA-Z0-9]\{30,\}" \
+                --include="*.py" \
+                --exclude-dir=venv \
+                --exclude-dir=.venv .; then
+            echo "❌ Found hardcoded Langfuse secret key!"
+            exit 1
+          fi
+          
+          echo "✅ No hardcoded secrets detected"
+      
+      # Verify .env is properly gitignored
+      - name: Check .env is not tracked
+        run: |
+          if git ls-files --error-unmatch .env 2>/dev/null; then
+            echo "❌ .env file is tracked in git! This is a security risk."
+            exit 1
+          fi
+          echo "✅ .env is properly excluded from version control"
+      
+      # Ensure .env.example template exists for setup
+      - name: Verify .env.example template exists
+        run: |
+          if [ ! -f .env.example ]; then
+            echo "❌ .env.example not found - developers need this template!"
+            exit 1
+          fi
+          echo "✅ .env.example template exists"

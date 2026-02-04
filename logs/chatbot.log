@@ -1,0 +1,782 @@
+2026-02-04 14:55:11,004 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 14:55:11,009 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 14:55:11,010 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:01:33,131 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:01:33,133 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:01:33,135 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:03:52,413 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:03:52,416 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:03:52,420 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:03:54,523 - backend - INFO - Langfuse credentials not configured (optional)
+2026-02-04 15:03:54,546 - backend - INFO - Request tracing: Disabled (logs only)
+2026-02-04 15:06:25,777 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:06:25,785 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:06:25,789 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:06:28,649 - backend - INFO - Langfuse credentials not configured (optional)
+2026-02-04 15:06:28,651 - backend - INFO - Request tracing: Disabled (logs only)
+2026-02-04 15:06:39,047 - backend - INFO - [729c17d9-0abe-4021-83c8-26eaf3569498] New request: temp=0.4, msg_len=2, tracing=None
+2026-02-04 15:06:39,076 - backend - WARNING - Retrying backend._call_llm_with_retry in 2.0 seconds as it raised AttributeError: 'function' object has no attribute 'before_call'.
+2026-02-04 15:06:41,079 - backend - WARNING - Retrying backend._call_llm_with_retry in 2.0 seconds as it raised AttributeError: 'function' object has no attribute 'before_call'.
+2026-02-04 15:06:43,092 - backend - ERROR - [729c17d9-0abe-4021-83c8-26eaf3569498] Unexpected error: 'function' object has no attribute 'before_call'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\backend.py", line 614, in generate_response
+    resp = _call_llm_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 289, in wrapped_f
+    return self(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 379, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 325, in iter
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 158, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 382, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\pybreaker.py", line 324, in _inner_wrapper
+    return self.call(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\pybreaker.py", line 261, in call
+    return self.state.call(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\pybreaker.py", line 773, in call
+    listener.before_call(self._breaker, func, *args, **kwargs)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'before_call'
+2026-02-04 15:08:18,045 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:08:18,046 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:08:18,046 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:08:20,444 - backend - INFO - Langfuse credentials not configured (optional)
+2026-02-04 15:08:20,444 - backend - INFO - Request tracing: Disabled (logs only)
+2026-02-04 15:08:50,516 - backend - INFO - [277f0cab-ff66-4181-a163-d8cb7c25a158] New request: temp=0.4, msg_len=2, tracing=None
+2026-02-04 15:08:50,542 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:08:56,474 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:08:56,476 - backend - WARNING - Retrying backend._call_llm_with_retry in 2.0 seconds as it raised AttributeError: 'CircuitBreakerListener' object has no attribute 'success'.
+2026-02-04 15:08:58,619 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:09:00,208 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:09:00,209 - backend - WARNING - Retrying backend._call_llm_with_retry in 2.0 seconds as it raised AttributeError: 'CircuitBreakerListener' object has no attribute 'success'.
+2026-02-04 15:09:02,310 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:09:03,766 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:09:03,767 - backend - ERROR - [277f0cab-ff66-4181-a163-d8cb7c25a158] Unexpected error: 'CircuitBreakerListener' object has no attribute 'success'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\backend.py", line 622, in generate_response
+    resp = _call_llm_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 289, in wrapped_f
+    return self(f, *args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 379, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 325, in iter
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 158, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\tenacity\__init__.py", line 382, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\pybreaker.py", line 324, in _inner_wrapper
+    return self.call(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\pybreaker.py", line 261, in call
+    return self.state.call(func, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\pybreaker.py", line 783, in call
+    self._handle_success()
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\pybreaker.py", line 762, in _handle_success
+    listener.success(self._breaker)
+    ^^^^^^^^^^^^^^^^
+AttributeError: 'CircuitBreakerListener' object has no attribute 'success'. Did you mean: 'on_success'?
+2026-02-04 15:11:23,944 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:11:23,945 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:11:23,945 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:11:23,946 - backend - INFO - Langfuse credentials not configured (optional)
+2026-02-04 15:11:23,946 - backend - INFO - Request tracing: Disabled (logs only)
+2026-02-04 15:11:36,026 - backend - INFO - [c39c44e9-7e9c-43ac-a196-e4f75bf20098] New request: temp=0.4, msg_len=2, tracing=None
+2026-02-04 15:11:36,065 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:11:40,894 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:11:40,937 - backend - INFO - [c39c44e9-7e9c-43ac-a196-e4f75bf20098] Success: tokens=182, cost=$0.000026, duration=4.91s
+2026-02-04 15:24:40,842 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:24:40,842 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:24:40,843 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:24:40,843 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 15:24:40,843 - backend - INFO - Request tracing: Langfuse
+2026-02-04 15:24:54,713 - backend - INFO - [167bd2a3-a5b7-48ac-9824-96afb6d7c9d3] New request: temp=0.0, msg_len=19, tracing=Langfuse
+2026-02-04 15:24:56,434 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:25:03,211 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:25:04,018 - backend - INFO - [167bd2a3-a5b7-48ac-9824-96afb6d7c9d3] Success: tokens=135, cost=$0.000011, duration=9.31s
+2026-02-04 15:25:05,222 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 15:25:05,230 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 15:25:11,843 - backend - INFO - [72f5c2dd-f478-4ebb-9b01-f74bf31855b3] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 15:25:11,847 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:25:15,041 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:25:15,042 - backend - INFO - [72f5c2dd-f478-4ebb-9b01-f74bf31855b3] Success: tokens=185, cost=$0.000026, duration=3.20s
+2026-02-04 15:25:15,114 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 15:25:15,179 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 15:27:40,451 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:27:40,452 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:27:40,454 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:27:40,455 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 15:27:40,455 - backend - INFO - Request tracing: Langfuse
+2026-02-04 15:27:51,154 - backend - INFO - [9554e005-137e-488c-94bb-59d9a0642c85] New request: temp=0.0, msg_len=19, tracing=Langfuse
+2026-02-04 15:27:51,628 - LiteLLM - ERROR - litellm.utils.py::function_setup() - [Non-Blocking] Error in function_setup
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 103, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\utils.py", line 828, in function_setup
+    get_set_callbacks()(callback_list=callback_list, function_id=function_id)
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3496, in set_callbacks
+    raise e
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3470, in set_callbacks
+    langFuseLogger = LangFuseLogger(
+                     ^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 106, in __init__
+    raise Exception(
+Exception: [91mLangfuse not installed, try running 'pip install langfuse' to fix this error: No module named 'opentelemetry.util._decorator'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 103, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+[0m
+2026-02-04 15:27:51,638 - backend - WARNING - Retrying backend._call_llm_with_retry in 2.0 seconds as it raised Exception: [91mLangfuse not installed, try running 'pip install langfuse' to fix this error: No module named 'opentelemetry.util._decorator'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 103, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+[0m.
+2026-02-04 15:27:53,643 - LiteLLM - ERROR - [Non-Blocking Error] Error initializing custom logger: No module named 'opentelemetry.util._decorator'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3915, in _init_custom_logger_compatible_class
+    langfuse_logger = LangfusePromptManagement()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 119, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+2026-02-04 15:27:53,680 - LiteLLM - ERROR - [Non-Blocking Error] Error initializing custom logger: No module named 'opentelemetry.util._decorator'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3915, in _init_custom_logger_compatible_class
+    langfuse_logger = LangfusePromptManagement()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 119, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+2026-02-04 15:27:53,743 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:27:57,920 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:27:57,924 - backend - INFO - [9554e005-137e-488c-94bb-59d9a0642c85] Success: tokens=135, cost=$0.000011, duration=6.77s
+2026-02-04 15:28:14,093 - backend - INFO - [07e7d68b-3192-440d-880e-7de9ee1bd1de] New request: temp=0.4, msg_len=11, tracing=Langfuse
+2026-02-04 15:28:14,098 - LiteLLM - ERROR - [Non-Blocking Error] Error initializing custom logger: No module named 'opentelemetry.util._decorator'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3915, in _init_custom_logger_compatible_class
+    langfuse_logger = LangfusePromptManagement()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 119, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+2026-02-04 15:28:14,110 - LiteLLM - ERROR - [Non-Blocking Error] Error initializing custom logger: No module named 'opentelemetry.util._decorator'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3915, in _init_custom_logger_compatible_class
+    langfuse_logger = LangfusePromptManagement()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 119, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+2026-02-04 15:28:14,118 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:28:15,741 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:28:15,743 - backend - INFO - [07e7d68b-3192-440d-880e-7de9ee1bd1de] Success: tokens=185, cost=$0.000026, duration=1.65s
+2026-02-04 15:30:12,916 - backend - INFO - [59889013-7997-4ae3-9fcb-1295c585cec7] New request: temp=0.4, msg_len=3, tracing=Langfuse
+2026-02-04 15:30:12,946 - LiteLLM - ERROR - [Non-Blocking Error] Error initializing custom logger: No module named 'opentelemetry.util._decorator'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3915, in _init_custom_logger_compatible_class
+    langfuse_logger = LangfusePromptManagement()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 119, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+2026-02-04 15:30:12,950 - LiteLLM - ERROR - [Non-Blocking Error] Error initializing custom logger: No module named 'opentelemetry.util._decorator'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3915, in _init_custom_logger_compatible_class
+    langfuse_logger = LangfusePromptManagement()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 119, in __init__
+    import langfuse
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\__init__.py", line 13, in <module>
+    from ._client import client as _client_module
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\_client\client.py", line 33, in <module>
+    from opentelemetry.util._decorator import (
+ModuleNotFoundError: No module named 'opentelemetry.util._decorator'
+2026-02-04 15:30:12,952 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:30:15,205 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:30:15,206 - backend - INFO - [59889013-7997-4ae3-9fcb-1295c585cec7] Success: tokens=182, cost=$0.000026, duration=2.29s
+2026-02-04 15:32:53,058 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:32:53,059 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:32:53,060 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:32:53,060 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 15:32:53,061 - backend - INFO - Request tracing: Langfuse
+2026-02-04 15:33:13,066 - backend - INFO - [6d4781fa-e165-409d-8665-c89a4d2cb84b] New request: temp=0.0, msg_len=19, tracing=Langfuse
+2026-02-04 15:33:19,299 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:33:22,066 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:33:22,098 - backend - INFO - [6d4781fa-e165-409d-8665-c89a4d2cb84b] Success: tokens=135, cost=$0.000011, duration=9.03s
+2026-02-04 15:33:25,598 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 15:33:25,909 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 15:33:48,024 - backend - INFO - [91ddf071-9fd1-4c44-afe1-25c6f114e654] New request: temp=0.4, msg_len=3, tracing=Langfuse
+2026-02-04 15:33:48,028 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:33:49,699 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:33:49,701 - backend - INFO - [91ddf071-9fd1-4c44-afe1-25c6f114e654] Success: tokens=173, cost=$0.000023, duration=1.68s
+2026-02-04 15:33:49,705 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 15:33:49,740 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 15:43:29,041 - backend - INFO - Prometheus metrics server started on port 9090
+2026-02-04 15:43:29,044 - backend - INFO - Metrics available at: http://localhost:9090/metrics
+2026-02-04 15:43:29,046 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:43:29,047 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 15:43:29,049 - backend - INFO - Request tracing: Langfuse
+2026-02-04 15:43:40,791 - backend - INFO - [91fac20e-064f-4376-8a6c-8c56db5711d8] New request: temp=0.4, msg_len=9, tracing=Langfuse
+2026-02-04 15:43:43,132 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:43:46,369 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:43:46,420 - backend - INFO - [91fac20e-064f-4376-8a6c-8c56db5711d8] Success: tokens=190, cost=$0.000028, duration=5.63s
+2026-02-04 15:43:46,509 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 15:43:47,402 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 15:56:13,420 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:56:13,422 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 15:56:13,422 - backend - INFO - Request tracing: Langfuse
+2026-02-04 15:56:20,450 - backend - INFO - [ed1c317c-dc0e-4c02-84ab-674df7b8efe1] New request: temp=0.0, msg_len=19, tracing=Langfuse
+2026-02-04 15:56:22,590 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 15:56:27,061 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 15:56:27,340 - backend - INFO - [ed1c317c-dc0e-4c02-84ab-674df7b8efe1] Success: tokens=135, cost=$0.000011, duration=6.89s
+2026-02-04 15:56:27,855 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 15:56:27,861 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 15:59:48,377 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 15:59:48,394 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 15:59:48,395 - backend - INFO - Request tracing: Langfuse
+2026-02-04 16:04:02,099 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:04:02,101 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:04:02,101 - backend - INFO - Request tracing: Langfuse
+2026-02-04 16:04:09,088 - backend - INFO - [3c3f559b-f1cb-41ea-a1c1-6cda7f40d1f1] New request: temp=0.4, msg_len=3, tracing=Langfuse
+2026-02-04 16:04:11,001 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:04:17,238 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:04:17,243 - backend - INFO - [3c3f559b-f1cb-41ea-a1c1-6cda7f40d1f1] Success: tokens=168, cost=$0.000021, duration=8.16s
+2026-02-04 16:04:17,428 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 16:04:17,694 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 16:07:46,824 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:07:46,824 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:07:46,825 - backend - INFO - Request tracing: Langfuse
+2026-02-04 16:07:53,089 - backend - INFO - [1f8fb1d7-6622-4b67-8d75-3b6c5a611ca0] New request: temp=0.0, msg_len=19, tracing=Langfuse
+2026-02-04 16:07:54,701 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:07:58,288 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:07:58,292 - backend - INFO - [1f8fb1d7-6622-4b67-8d75-3b6c5a611ca0] Success: tokens=135, cost=$0.000011, duration=5.20s
+2026-02-04 16:07:58,428 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 16:08:01,026 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 16:10:00,737 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:10:00,738 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:10:00,739 - backend - INFO - Request tracing: Langfuse
+2026-02-04 16:10:10,526 - backend - INFO - [d9c6164a-1170-4af8-892c-cbfac5c6d4e1] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 16:10:12,505 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:10:15,399 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:10:15,426 - backend - INFO - [d9c6164a-1170-4af8-892c-cbfac5c6d4e1] Success: tokens=185, cost=$0.000026, duration=4.90s
+2026-02-04 16:10:15,459 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 16:10:15,803 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 16:17:38,095 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:17:38,096 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:17:38,097 - backend - INFO - Request tracing: Langfuse
+2026-02-04 16:18:07,170 - backend - INFO - [a6939b8d-b402-45a6-b986-620242f9ca3b] New request: temp=0.0, msg_len=19, tracing=Langfuse
+2026-02-04 16:18:09,199 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:18:11,627 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:18:11,700 - backend - INFO - [a6939b8d-b402-45a6-b986-620242f9ca3b] Success: tokens=135, cost=$0.000011, duration=4.53s
+2026-02-04 16:18:11,994 - LiteLLM - ERROR - Langfuse Layer Error - Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\asyncify.py", line 107, in run_async_function
+    _ = asyncio.get_running_loop()
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 857, in _log_langfuse_v2
+    generation_params = _add_prompt_to_generation_params(
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 1098, in _add_prompt_to_generation_params
+    from langfuse.model import (
+ImportError: cannot import name 'ChatPromptClient' from 'langfuse.model' (C:\streamlit-chatbot\venv\Lib\site-packages\langfuse\model.py)
+
+2026-02-04 16:18:11,995 - LiteLLM - INFO - Langfuse Layer Logging - logging success
+2026-02-04 16:24:27,535 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:24:28,400 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:24:28,402 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 16:24:39,395 - backend - INFO - [3795df58-9d14-4d60-8ef7-69dffabee0de] New request: temp=0.4, msg_len=20, tracing=Langfuse
+2026-02-04 16:24:39,425 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:24:42,136 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:24:42,580 - backend - INFO - [3795df58-9d14-4d60-8ef7-69dffabee0de] Success: tokens=187, cost=$0.000026, duration=2.75s
+2026-02-04 16:25:55,100 - backend - INFO - [dacae45f-039a-4b48-8544-4f8a602c89aa] New request: temp=0.4, msg_len=18, tracing=Langfuse
+2026-02-04 16:25:55,106 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:26:04,284 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:26:05,547 - backend - INFO - [dacae45f-039a-4b48-8544-4f8a602c89aa] Success: tokens=244, cost=$0.000030, duration=9.18s
+2026-02-04 16:28:22,825 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:28:23,887 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:28:23,887 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 16:28:31,600 - backend - INFO - [e149c170-2474-4ab7-a279-3fd95026c6e8] New request: temp=0.4, msg_len=2, tracing=Langfuse
+2026-02-04 16:28:31,682 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:28:34,539 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:28:36,242 - backend - INFO - [e149c170-2474-4ab7-a279-3fd95026c6e8] Success: tokens=181, cost=$0.000025, duration=2.94s
+2026-02-04 16:35:42,488 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:35:43,177 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:35:43,179 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 16:36:03,341 - backend - INFO - [41e455fd-c0b3-4c96-94cf-2ac3da07f9d9] New request: temp=0.4, msg_len=34, tracing=Langfuse
+2026-02-04 16:36:03,398 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:36:08,205 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:36:08,599 - backend - INFO - [41e455fd-c0b3-4c96-94cf-2ac3da07f9d9] Success: tokens=203, cost=$0.000031, duration=4.87s
+2026-02-04 16:40:09,585 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:40:10,660 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:40:10,661 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 16:40:23,627 - backend - INFO - [3b10ac77-a909-47bb-b2d3-51a9173f040b] New request: temp=0.4, msg_len=17, tracing=Langfuse
+2026-02-04 16:40:23,650 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:40:26,571 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:40:27,279 - backend - INFO - [3b10ac77-a909-47bb-b2d3-51a9173f040b] Success: tokens=160, cost=$0.000018, duration=2.95s
+2026-02-04 16:56:37,312 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:56:38,129 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:56:38,133 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 16:56:51,311 - backend - INFO - [8a99006f-4e6b-4c55-89a4-6c21f0b445ec] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 16:56:51,341 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:56:55,281 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:56:57,195 - backend - INFO - [8a99006f-4e6b-4c55-89a4-6c21f0b445ec] Success: tokens=191, cost=$0.000028, duration=4.12s
+2026-02-04 16:58:52,007 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 16:58:53,559 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 16:58:53,564 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 16:59:12,959 - backend - INFO - [86e438ff-7d42-438a-868a-0f6e31c93bb8] New request: temp=0.4, msg_len=24, tracing=Langfuse
+2026-02-04 16:59:13,003 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 16:59:16,238 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 16:59:16,590 - backend - INFO - [86e438ff-7d42-438a-868a-0f6e31c93bb8] Success: tokens=197, cost=$0.000029, duration=3.28s
+2026-02-04 17:02:19,765 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 17:02:20,965 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 17:02:20,966 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 17:02:33,435 - backend - INFO - [8394bb69-2c25-4408-9db3-507b79888492] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 17:02:33,506 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:02:36,752 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:02:36,771 - backend - INFO - [8394bb69-2c25-4408-9db3-507b79888492] LANGFUSE DEBUG - Sending to generation:
+2026-02-04 17:02:36,777 - backend - INFO -   Input type: <class 'list'>, length: 2
+2026-02-04 17:02:36,786 - backend - INFO -   Input preview: {
+  "role": "system",
+  "content": "You are a helpful, friendly, and knowledgeable AI assistant. Your goal is to provide accurate, clear, and concise responses to user queries.\n\nGuidelines:\n- Be co
+2026-02-04 17:02:36,793 - backend - INFO -   Output type: <class 'dict'>
+2026-02-04 17:02:36,798 - backend - INFO -   Output preview: {
+  "role": "assistant",
+  "content": "Hello there! I'm doing great, thank you for asking. How are you doing today?\n\nI'm here to help you with any questions you might have, whether you need to brain
+2026-02-04 17:02:36,802 - backend - INFO -   Usage: {'input': 129, 'output': 70, 'total': 199, 'unit': 'TOKENS', 'input_cost': 9.675e-06, 'output_cost': 2.1e-05, 'total_cost': 3.0675e-05}
+2026-02-04 17:02:36,808 - backend - INFO -   Cost: 3.0675e-05
+2026-02-04 17:02:36,814 - backend - INFO - [8394bb69-2c25-4408-9db3-507b79888492] LANGFUSE DEBUG - Generation created: be035ca2-905c-47dc-b2cf-dd96c0d04da0
+2026-02-04 17:02:37,444 - backend - INFO - [8394bb69-2c25-4408-9db3-507b79888492] LANGFUSE DEBUG - Flushed successfully
+2026-02-04 17:02:37,444 - backend - INFO - [8394bb69-2c25-4408-9db3-507b79888492] Success: tokens=199, cost=$0.000031, duration=3.34s
+2026-02-04 17:05:01,443 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 17:05:02,323 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 17:05:02,323 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 17:05:14,412 - backend - INFO - [bb8da30c-fc27-47e0-b503-8c146cb6f615] New request: temp=0.4, msg_len=11, tracing=Langfuse
+2026-02-04 17:05:14,481 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:05:17,509 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:05:17,897 - backend - INFO - [bb8da30c-fc27-47e0-b503-8c146cb6f615] LANGFUSE DEBUG - Sending to generation:
+2026-02-04 17:05:18,150 - backend - INFO -   Input type: <class 'list'>, length: 2
+2026-02-04 17:05:18,195 - backend - INFO -   Input preview: {
+  "role": "system",
+  "content": "You are a helpful, friendly, and knowledgeable AI assistant. Your goal is to provide accurate, clear, and concise responses to user queries.\n\nGuidelines:\n- Be co
+2026-02-04 17:05:18,310 - backend - INFO -   Output type: <class 'dict'>
+2026-02-04 17:05:18,314 - backend - INFO -   Output preview: {
+  "role": "assistant",
+  "content": "Hello, Ashish! It\u2019s a pleasure to meet you. I\u2019m your AI assistant.\n\nHow can I help you today? Whether you have a specific question, need help with a 
+2026-02-04 17:05:18,324 - backend - INFO -   Usage: {'input': 132, 'output': 63, 'total': 195, 'unit': 'TOKENS', 'input_cost': 9.9e-06, 'output_cost': 1.89e-05, 'total_cost': 2.88e-05}
+2026-02-04 17:05:18,341 - backend - INFO -   Cost: 2.88e-05
+2026-02-04 17:05:18,357 - backend - INFO - [bb8da30c-fc27-47e0-b503-8c146cb6f615] LANGFUSE DEBUG - Generation created: 3ce111a9-17e3-4001-8219-f3427364b384
+2026-02-04 17:05:18,361 - backend - INFO - [bb8da30c-fc27-47e0-b503-8c146cb6f615] LANGFUSE DEBUG - Updated with input/output
+2026-02-04 17:05:18,893 - backend - INFO - [bb8da30c-fc27-47e0-b503-8c146cb6f615] LANGFUSE DEBUG - Flushed successfully
+2026-02-04 17:05:18,907 - backend - INFO - [bb8da30c-fc27-47e0-b503-8c146cb6f615] Success: tokens=195, cost=$0.000029, duration=3.49s
+2026-02-04 17:07:42,451 - backend - INFO - OpenTelemetry tracing disabled via ENABLE_OTEL=false
+2026-02-04 17:07:43,123 - backend - INFO - Langfuse tracing enabled (host: https://cloud.langfuse.com)
+2026-02-04 17:07:43,124 - backend - INFO - Request tracing: Langfuse (direct SDK)
+2026-02-04 17:07:57,877 - backend - INFO - [ae3b5ce7-bfd0-49b3-9537-8988ed024278] New request: temp=0.4, msg_len=9, tracing=Langfuse
+2026-02-04 17:07:57,902 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:08:00,538 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:08:00,895 - backend - INFO - [ae3b5ce7-bfd0-49b3-9537-8988ed024278] LANGFUSE DEBUG - Sending to generation:
+2026-02-04 17:08:00,908 - backend - INFO -   Input (string): system: You are a helpful, friendly, and knowledgeable AI assistant. Your goal is to provide accurat...
+2026-02-04 17:08:00,916 - backend - INFO -   Output (string): I am Gemini, a large language model built by Google. Think of me as your friendly and knowledgeable ...
+2026-02-04 17:08:00,920 - backend - INFO -   Usage: {'input': 130, 'output': 30, 'total': 160, 'unit': 'TOKENS', 'input_cost': 9.749999999999998e-06, 'output_cost': 9e-06, 'total_cost': 1.875e-05}
+2026-02-04 17:08:00,921 - backend - INFO -   Cost: 1.875e-05
+2026-02-04 17:08:00,939 - backend - INFO - [ae3b5ce7-bfd0-49b3-9537-8988ed024278] LANGFUSE DEBUG - Generation created: 94eee372-8c30-4965-a8e3-66d2e647e66c
+2026-02-04 17:08:01,639 - backend - INFO - [ae3b5ce7-bfd0-49b3-9537-8988ed024278] LANGFUSE DEBUG - Flushed successfully
+2026-02-04 17:08:01,642 - backend - INFO - [ae3b5ce7-bfd0-49b3-9537-8988ed024278] Success: tokens=160, cost=$0.000019, duration=3.02s
+2026-02-04 17:25:54,567 - backend - INFO - [dada95e9-312d-4ac4-bfa4-a117446009dd] New request: temp=0.4, msg_len=13, tracing=Langfuse
+2026-02-04 17:25:54,577 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:25:57,597 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:25:57,599 - backend - INFO - [dada95e9-312d-4ac4-bfa4-a117446009dd] LANGFUSE DEBUG - Sending to generation:
+2026-02-04 17:25:57,600 - backend - INFO -   Input (string): system: You are a helpful, friendly, and knowledgeable AI assistant. Your goal is to provide accurat...
+2026-02-04 17:25:57,602 - backend - INFO -   Output (string): I am a large language model, trained by Google.
+
+You can think of me as a knowledgeable, creative, a...
+2026-02-04 17:25:57,603 - backend - INFO -   Usage: {'input': 166, 'output': 186, 'total': 352, 'unit': 'TOKENS', 'input_cost': 1.245e-05, 'output_cost': 5.5799999999999994e-05, 'total_cost': 6.824999999999999e-05}
+2026-02-04 17:25:57,606 - backend - INFO -   Cost: 6.824999999999999e-05
+2026-02-04 17:25:57,610 - backend - INFO - [dada95e9-312d-4ac4-bfa4-a117446009dd] LANGFUSE DEBUG - Generation created: ef794bda-a448-4f8c-9106-9bdfa86604ac
+2026-02-04 17:25:58,262 - backend - INFO - [dada95e9-312d-4ac4-bfa4-a117446009dd] LANGFUSE DEBUG - Flushed successfully
+2026-02-04 17:25:58,263 - backend - INFO - [dada95e9-312d-4ac4-bfa4-a117446009dd] Success: tokens=352, cost=$0.000068, duration=3.03s
+2026-02-04 17:38:22,113 - backend - INFO - Langfuse tracing enabled via LiteLLM callback (host: https://cloud.langfuse.com)
+2026-02-04 17:38:39,354 - backend - INFO - [b3118bf1-2163-4404-8a9b-8923dd99f56a] New request: temp=0.4, msg_len=21, tracing=Langfuse
+2026-02-04 17:38:39,358 - LiteLLM - ERROR - litellm.utils.py::function_setup() - [Non-Blocking] Error in function_setup
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\utils.py", line 828, in function_setup
+    get_set_callbacks()(callback_list=callback_list, function_id=function_id)
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3496, in set_callbacks
+    raise e
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3470, in set_callbacks
+    langFuseLogger = LangFuseLogger(
+                     ^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 148, in __init__
+    self.Langfuse: Langfuse = self.safe_init_langfuse_client(parameters)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse.py", line 205, in safe_init_langfuse_client
+    langfuse_client = Langfuse(**parameters)
+                      ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Langfuse.__init__() got an unexpected keyword argument 'sdk_integration'
+2026-02-04 17:38:39,368 - backend - WARNING - Retrying backend._call_llm_with_retry in 2.0 seconds as it raised TypeError: Langfuse.__init__() got an unexpected keyword argument 'sdk_integration'.
+2026-02-04 17:38:41,370 - LiteLLM - ERROR - [Non-Blocking Error] Error initializing custom logger: Langfuse.__init__() got an unexpected keyword argument 'sdk_integration'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3915, in _init_custom_logger_compatible_class
+    langfuse_logger = LangfusePromptManagement()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 122, in __init__
+    self.Langfuse = langfuse_client_init(
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 106, in langfuse_client_init
+    client = Langfuse(**parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Langfuse.__init__() got an unexpected keyword argument 'sdk_integration'
+2026-02-04 17:38:41,372 - LiteLLM - ERROR - [Non-Blocking Error] Error initializing custom logger: Langfuse.__init__() got an unexpected keyword argument 'sdk_integration'
+Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 3915, in _init_custom_logger_compatible_class
+    langfuse_logger = LangfusePromptManagement()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 122, in __init__
+    self.Langfuse = langfuse_client_init(
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse\langfuse_prompt_management.py", line 106, in langfuse_client_init
+    client = Langfuse(**parameters)
+             ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Langfuse.__init__() got an unexpected keyword argument 'sdk_integration'
+2026-02-04 17:38:41,398 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:38:47,842 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:38:48,073 - backend - INFO - [b3118bf1-2163-4404-8a9b-8923dd99f56a] Success: tokens=191, cost=$0.000027, duration=8.72s
+2026-02-04 17:42:02,451 - backend - INFO - Langfuse tracing enabled via LiteLLM callback (host: https://cloud.langfuse.com)
+2026-02-04 17:42:08,382 - backend - INFO - [d0df6050-6386-4977-8a09-fbf35433fe76] New request: temp=0.4, msg_len=3, tracing=Langfuse
+2026-02-04 17:42:08,390 - LiteLLM - ERROR - litellm.utils.py::function_setup() - [Non-Blocking] Traceback (most recent call last):
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\utils.py", line 391, in function_setup
+    set_callbacks(callback_list=callback_list, function_id=function_id)
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 2301, in set_callbacks
+    raise e
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\litellm_core_utils\litellm_logging.py", line 2263, in set_callbacks
+    langFuseLogger = LangFuseLogger(
+                     ^^^^^^^^^^^^^^^
+  File "C:\streamlit-chatbot\venv\Lib\site-packages\litellm\integrations\langfuse.py", line 65, in __init__
+    self.Langfuse = Langfuse(**parameters)
+                    ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Langfuse.__init__() got an unexpected keyword argument 'sdk_integration'
+; args - (); kwargs - {'model': 'openai/gemini-3-flash', 'api_key': 'sk-HJMvZrpBof1LAGxWUqmkeg', 'api_base': 'https://llm.lingarogroup.com', 'messages': [{'role': 'system', 'content': "You are a helpful, friendly, and knowledgeable AI assistant. Your goal is to provide accurate, clear, and concise responses to user queries.\n\nGuidelines:\n- Be conversational and approachable in your tone\n- Provide well-structured and easy-to-understand answers\n- If you're unsure about something, acknowledge it honestly\n- Break down complex topics into simpler explanations when appropriate\n- Use examples to illustrate your points when helpful\n- Be respectful and professional at all times\n- If asked to do something harmful or inappropriate, politely decline\n\nYour responses should be informative, engaging, and tailored to the user's needs."}, {'role': 'user', 'content': 'Hey'}], 'temperature': 0.4, 'stream': False, 'max_tokens': 1024, 'timeout': 30, 'litellm_call_id': '104c6427-6073-4db0-8395-b8e9bccd15eb'}
+2026-02-04 17:42:08,403 - backend - WARNING - Retrying backend._call_llm_with_retry in 2.0 seconds as it raised TypeError: Langfuse.__init__() got an unexpected keyword argument 'sdk_integration'.
+2026-02-04 17:42:10,431 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:42:15,773 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:42:15,779 - backend - INFO - [d0df6050-6386-4977-8a09-fbf35433fe76] Success: tokens=173, cost=$0.000023, duration=7.40s
+2026-02-04 17:45:13,810 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 17:45:20,887 - backend - INFO - [60b1872e-553b-4085-9861-04144fce3d7b] New request: temp=0.4, msg_len=3, tracing=Langfuse
+2026-02-04 17:45:20,888 - backend - WARNING - Failed to create Langfuse trace: 'Langfuse' object has no attribute 'trace'
+2026-02-04 17:45:20,895 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:45:25,220 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:45:25,258 - backend - INFO - [60b1872e-553b-4085-9861-04144fce3d7b] Success: tokens=182, cost=$0.000026, duration=4.37s
+2026-02-04 17:48:04,658 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 17:48:12,351 - backend - INFO - [da86a832-79e6-4ee9-b801-3f5f27b86620] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 17:48:12,377 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:48:16,157 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:48:16,278 - backend - WARNING - Failed to log to Langfuse: Langfuse.start_observation() got an unexpected keyword argument 'trace_id'
+2026-02-04 17:48:16,331 - backend - INFO - [da86a832-79e6-4ee9-b801-3f5f27b86620] Success: tokens=185, cost=$0.000026, duration=3.93s
+2026-02-04 17:48:54,981 - backend - INFO - [32b64f7c-03c9-457a-8a04-beb828ab489f] New request: temp=0.0, msg_len=19, tracing=Langfuse
+2026-02-04 17:48:54,986 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:48:56,497 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:48:56,501 - backend - WARNING - Failed to log to Langfuse: Langfuse.start_observation() got an unexpected keyword argument 'trace_id'
+2026-02-04 17:48:56,505 - backend - INFO - [32b64f7c-03c9-457a-8a04-beb828ab489f] Success: tokens=135, cost=$0.000011, duration=1.52s
+2026-02-04 17:52:27,060 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 17:52:36,722 - backend - INFO - [7ec000fe-55db-4674-938e-f1163f2e7777] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 17:52:36,726 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:52:40,335 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:52:40,352 - backend - INFO - [7ec000fe-55db-4674-938e-f1163f2e7777] Success: tokens=192, cost=$0.000029, duration=3.63s
+2026-02-04 17:55:17,164 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 17:55:23,203 - backend - INFO - [f787ab11-d77b-4c7c-b41f-da5254ea39cb] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 17:55:23,207 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:55:26,105 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:55:26,119 - backend - INFO - [f787ab11-d77b-4c7c-b41f-da5254ea39cb] Logging to Langfuse...
+2026-02-04 17:55:26,134 - backend - INFO - [f787ab11-d77b-4c7c-b41f-da5254ea39cb] Langfuse logged and flushed
+2026-02-04 17:55:26,156 - backend - INFO - [f787ab11-d77b-4c7c-b41f-da5254ea39cb] Success: tokens=185, cost=$0.000026, duration=2.92s
+2026-02-04 17:59:37,109 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 17:59:47,161 - backend - INFO - [db08066e-494e-45d8-ba7f-054c6100b5b9] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 17:59:47,165 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 17:59:53,721 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 17:59:53,740 - backend - INFO - [db08066e-494e-45d8-ba7f-054c6100b5b9] Logging to Langfuse...
+2026-02-04 17:59:54,597 - backend - INFO - [db08066e-494e-45d8-ba7f-054c6100b5b9] Langfuse logged successfully
+2026-02-04 17:59:54,601 - backend - INFO - [db08066e-494e-45d8-ba7f-054c6100b5b9] Success: tokens=186, cost=$0.000027, duration=6.58s
+2026-02-04 18:02:56,319 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 18:03:01,388 - backend - INFO - [5df049bb-7e41-40b2-b5eb-392f054bc8b2] New request: temp=0.4, msg_len=5, tracing=Langfuse
+2026-02-04 18:03:01,395 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 18:03:05,252 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 18:03:06,030 - backend - INFO - [5df049bb-7e41-40b2-b5eb-392f054bc8b2] Logging to Langfuse...
+2026-02-04 18:03:08,498 - backend - INFO - [5df049bb-7e41-40b2-b5eb-392f054bc8b2] Langfuse logged successfully
+2026-02-04 18:03:08,638 - backend - INFO - [5df049bb-7e41-40b2-b5eb-392f054bc8b2] Success: tokens=191, cost=$0.000028, duration=4.64s
+2026-02-04 18:03:18,984 - backend - INFO - [457b21ed-bd49-4683-b3da-46cce58699a7] New request: temp=0.4, msg_len=11, tracing=Langfuse
+2026-02-04 18:03:18,986 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 18:03:21,070 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 18:03:21,281 - backend - INFO - [457b21ed-bd49-4683-b3da-46cce58699a7] Logging to Langfuse...
+2026-02-04 18:03:22,493 - backend - INFO - [457b21ed-bd49-4683-b3da-46cce58699a7] Langfuse logged successfully
+2026-02-04 18:03:22,494 - backend - INFO - [457b21ed-bd49-4683-b3da-46cce58699a7] Success: tokens=246, cost=$0.000029, duration=2.30s
+2026-02-04 18:06:18,067 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 18:06:31,445 - backend - INFO - [c55ae41c-163c-45b6-9450-1241b092f1db] New request: temp=0.4, msg_len=16, tracing=Langfuse
+2026-02-04 18:06:31,450 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 18:06:35,676 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 18:06:35,689 - backend - INFO - [c55ae41c-163c-45b6-9450-1241b092f1db] Logging to Langfuse...
+2026-02-04 18:06:37,687 - backend - INFO - [c55ae41c-163c-45b6-9450-1241b092f1db] Langfuse logged successfully
+2026-02-04 18:06:37,688 - backend - INFO - [c55ae41c-163c-45b6-9450-1241b092f1db] Success: tokens=200, cost=$0.000030, duration=4.24s
+2026-02-04 18:09:57,536 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 18:10:05,270 - backend - INFO - [f7e4fd91-b419-486a-9fe6-c8ac0b09c907] New request: temp=0.4, msg_len=3, tracing=Langfuse
+2026-02-04 18:10:05,275 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 18:10:08,151 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 18:10:09,743 - backend - INFO - [f7e4fd91-b419-486a-9fe6-c8ac0b09c907] Success: tokens=188, cost=$0.000027, duration=3.86s
+2026-02-04 18:25:05,426 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 18:26:36,333 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 18:26:47,171 - backend - INFO - [561ecbd9-bd9e-4b85-a1c6-3421f854f6fd] New request: temp=0.4, msg_len=18, tracing=Langfuse
+2026-02-04 18:26:47,215 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 18:26:50,428 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 18:26:51,428 - backend - INFO - [561ecbd9-bd9e-4b85-a1c6-3421f854f6fd] Success: tokens=187, cost=$0.000026, duration=3.50s
+2026-02-04 22:17:51,588 - backend - INFO - Langfuse tracing enabled via direct SDK (host: https://cloud.langfuse.com)
+2026-02-04 22:18:04,242 - backend - INFO - [d7d9e17e-6ad8-45be-9932-1db94252d20a] New request: temp=0.4, msg_len=8, tracing=Langfuse
+2026-02-04 22:18:04,312 - LiteLLM - INFO - 
+LiteLLM completion() model= gemini-3-flash; provider = openai
+2026-02-04 22:18:08,934 - LiteLLM - INFO - Wrapper: Completed Call, calling success_handler
+2026-02-04 22:18:10,464 - backend - INFO - [d7d9e17e-6ad8-45be-9932-1db94252d20a] Success: tokens=188, cost=$0.000027, duration=5.11s
+2026-02-04 22:18:13,319 - backend - INFO - Feedback logged: positive for request 2a702565-f37f-4700-a859-9fe878259ab9

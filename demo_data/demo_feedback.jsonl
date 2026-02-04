@@ -1,0 +1,18 @@
+{"timestamp": "2026-02-04T10:16:30.456Z", "request_id": "req-001", "rating": "positive", "session_id": "demo-001"}
+{"timestamp": "2026-02-04T10:19:20.123Z", "request_id": "req-002", "rating": "positive", "session_id": "demo-002"}
+{"timestamp": "2026-02-04T10:23:45.789Z", "request_id": "req-003", "rating": "positive", "session_id": "demo-001"}
+{"timestamp": "2026-02-04T10:26:10.234Z", "request_id": "req-004", "rating": "negative", "session_id": "demo-003", "comment": "Response was too brief"}
+{"timestamp": "2026-02-04T10:30:55.567Z", "request_id": "req-005", "rating": "positive", "session_id": "demo-002"}
+{"timestamp": "2026-02-04T10:37:22.345Z", "request_id": "req-007", "rating": "positive", "session_id": "demo-003"}
+{"timestamp": "2026-02-04T10:41:30.678Z", "request_id": "req-008", "rating": "positive", "session_id": "demo-001"}
+{"timestamp": "2026-02-04T10:45:18.123Z", "request_id": "req-009", "rating": "positive", "session_id": "demo-005"}
+{"timestamp": "2026-02-04T10:49:05.456Z", "request_id": "req-010", "rating": "positive", "session_id": "demo-002"}
+{"timestamp": "2026-02-04T10:53:12.789Z", "request_id": "req-011", "rating": "negative", "session_id": "demo-004", "comment": "Not relevant to my question"}
+{"timestamp": "2026-02-04T10:57:28.234Z", "request_id": "req-012", "rating": "positive", "session_id": "demo-003"}
+{"timestamp": "2026-02-04T11:02:45.567Z", "request_id": "req-013", "rating": "positive", "session_id": "demo-001"}
+{"timestamp": "2026-02-04T11:06:33.890Z", "request_id": "req-014", "rating": "positive", "session_id": "demo-005"}
+{"timestamp": "2026-02-04T11:10:11.345Z", "request_id": "req-015", "rating": "positive", "session_id": "demo-002"}
+{"timestamp": "2026-02-04T11:18:22.123Z", "request_id": "req-017", "rating": "positive", "session_id": "demo-004"}
+{"timestamp": "2026-02-04T11:22:09.456Z", "request_id": "req-018", "rating": "positive", "session_id": "demo-003"}
+{"timestamp": "2026-02-04T11:26:44.789Z", "request_id": "req-019", "rating": "positive", "session_id": "demo-001"}
+{"timestamp": "2026-02-04T11:30:31.234Z", "request_id": "req-020", "rating": "positive", "session_id": "demo-005"}

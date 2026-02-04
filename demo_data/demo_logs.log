@@ -1,0 +1,87 @@
+2026-02-04 10:15:23 - backend - INFO - Request started: req-001, session=demo-001, model=openai/gemini-3-flash
+2026-02-04 10:15:24 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:15:24 - backend - DEBUG - LiteLLM call initiated with temperature=0.7
+2026-02-04 10:15:24 - backend - INFO - LLM response received successfully: 89 tokens, latency=1.23s
+2026-02-04 10:15:25 - backend - INFO - Request completed: req-001, duration=1.23s, cost=$0.00301
+2026-02-04 10:18:45 - backend - INFO - Request started: req-002, session=demo-002, model=openai/gemini-3-flash
+2026-02-04 10:18:46 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:18:46 - backend - INFO - LLM response received successfully: 76 tokens, latency=0.89s
+2026-02-04 10:18:46 - backend - INFO - Request completed: req-002, duration=0.89s, cost=$0.00256
+2026-02-04 10:22:11 - backend - INFO - Request started: req-003, session=demo-001, model=openai/gemini-3-flash
+2026-02-04 10:22:12 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:22:13 - backend - DEBUG - LiteLLM call initiated with temperature=0.7
+2026-02-04 10:22:14 - backend - INFO - LLM response received successfully: 143 tokens, latency=2.45s
+2026-02-04 10:22:14 - backend - INFO - Request completed: req-003, duration=2.45s, cost=$0.00473
+2026-02-04 10:25:33 - backend - INFO - Request started: req-004, session=demo-003, model=openai/gemini-3-flash
+2026-02-04 10:25:34 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:25:35 - backend - INFO - LLM response received successfully: 98 tokens, latency=1.56s
+2026-02-04 10:25:35 - backend - INFO - Request completed: req-004, duration=1.56s, cost=$0.00333
+2026-02-04 10:29:02 - backend - INFO - Request started: req-005, session=demo-002, model=openai/gemini-3-flash
+2026-02-04 10:29:03 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:29:03 - backend - INFO - LLM response received successfully: 67 tokens, latency=0.78s
+2026-02-04 10:29:03 - backend - INFO - Request completed: req-005, duration=0.78s, cost=$0.00241
+2026-02-04 10:32:44 - backend - INFO - Request started: req-006, session=demo-004, model=openai/gemini-3-flash
+2026-02-04 10:32:45 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:32:46 - backend - WARNING - LiteLLM rate limit detected, initiating retry with backoff
+2026-02-04 10:32:47 - backend - ERROR - Request failed: req-006, error=RateLimitError, duration=3.12s
+2026-02-04 10:32:47 - backend - ERROR - RateLimitError: Rate limit exceeded for model openai/gemini-3-flash
+2026-02-04 10:36:18 - backend - INFO - Request started: req-007, session=demo-003, model=openai/gemini-3-flash
+2026-02-04 10:36:19 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:36:19 - backend - INFO - LLM response received successfully: 92 tokens, latency=1.34s
+2026-02-04 10:36:20 - backend - INFO - Request completed: req-007, duration=1.34s, cost=$0.00312
+2026-02-04 10:40:55 - backend - INFO - Request started: req-008, session=demo-001, model=openai/gemini-3-flash
+2026-02-04 10:40:56 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:40:57 - backend - INFO - LLM response received successfully: 115 tokens, latency=1.89s
+2026-02-04 10:40:57 - backend - INFO - Request completed: req-008, duration=1.89s, cost=$0.00389
+2026-02-04 10:44:27 - backend - INFO - Request started: req-009, session=demo-005, model=openai/gemini-3-flash
+2026-02-04 10:44:28 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:44:28 - backend - INFO - LLM response received successfully: 81 tokens, latency=0.95s
+2026-02-04 10:44:28 - backend - INFO - Request completed: req-009, duration=0.95s, cost=$0.00267
+2026-02-04 10:48:09 - backend - INFO - Request started: req-010, session=demo-002, model=openai/gemini-3-flash
+2026-02-04 10:48:10 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:48:11 - backend - DEBUG - LiteLLM call initiated with temperature=0.7
+2026-02-04 10:48:12 - backend - INFO - LLM response received successfully: 156 tokens, latency=2.67s
+2026-02-04 10:48:12 - backend - INFO - Request completed: req-010, duration=2.67s, cost=$0.00524
+2026-02-04 10:52:33 - backend - INFO - Request started: req-011, session=demo-004, model=openai/gemini-3-flash
+2026-02-04 10:52:34 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:52:35 - backend - INFO - LLM response received successfully: 88 tokens, latency=1.12s
+2026-02-04 10:52:35 - backend - INFO - Request completed: req-011, duration=1.12s, cost=$0.00298
+2026-02-04 10:56:41 - backend - INFO - Request started: req-012, session=demo-003, model=openai/gemini-3-flash
+2026-02-04 10:56:42 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 10:56:43 - backend - INFO - LLM response received successfully: 107 tokens, latency=1.78s
+2026-02-04 10:56:43 - backend - INFO - Request completed: req-012, duration=1.78s, cost=$0.00362
+2026-02-04 11:01:15 - backend - INFO - Request started: req-013, session=demo-001, model=openai/gemini-3-flash
+2026-02-04 11:01:16 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 11:01:16 - backend - INFO - LLM response received successfully: 72 tokens, latency=0.87s
+2026-02-04 11:01:16 - backend - INFO - Request completed: req-013, duration=0.87s, cost=$0.00249
+2026-02-04 11:05:44 - backend - INFO - Request started: req-014, session=demo-005, model=openai/gemini-3-flash
+2026-02-04 11:05:45 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 11:05:46 - backend - DEBUG - LiteLLM call initiated with temperature=0.7
+2026-02-04 11:05:47 - backend - INFO - LLM response received successfully: 134 tokens, latency=2.34s
+2026-02-04 11:05:47 - backend - INFO - Request completed: req-014, duration=2.34s, cost=$0.00453
+2026-02-04 11:09:22 - backend - INFO - Request started: req-015, session=demo-002, model=openai/gemini-3-flash
+2026-02-04 11:09:23 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 11:09:24 - backend - INFO - LLM response received successfully: 95 tokens, latency=1.45s
+2026-02-04 11:09:24 - backend - INFO - Request completed: req-015, duration=1.45s, cost=$0.00318
+2026-02-04 11:13:58 - backend - INFO - Request started: req-016, session=demo-006, model=openai/gemini-3-flash
+2026-02-04 11:13:59 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 11:14:00 - backend - WARNING - LiteLLM timeout detected after 3.5s
+2026-02-04 11:14:02 - backend - ERROR - Request failed: req-016, error=TimeoutError, duration=3.89s
+2026-02-04 11:14:02 - backend - ERROR - TimeoutError: Request timed out after 3.5 seconds
+2026-02-04 11:17:31 - backend - INFO - Request started: req-017, session=demo-004, model=openai/gemini-3-flash
+2026-02-04 11:17:32 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 11:17:32 - backend - INFO - LLM response received successfully: 89 tokens, latency=1.23s
+2026-02-04 11:17:33 - backend - INFO - Request completed: req-017, duration=1.23s, cost=$0.00302
+2026-02-04 11:21:05 - backend - INFO - Request started: req-018, session=demo-003, model=openai/gemini-3-flash
+2026-02-04 11:21:06 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 11:21:07 - backend - INFO - LLM response received successfully: 103 tokens, latency=1.67s
+2026-02-04 11:21:07 - backend - INFO - Request completed: req-018, duration=1.67s, cost=$0.00349
+2026-02-04 11:25:39 - backend - INFO - Request started: req-019, session=demo-001, model=openai/gemini-3-flash
+2026-02-04 11:25:40 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 11:25:40 - backend - INFO - LLM response received successfully: 78 tokens, latency=0.92s
+2026-02-04 11:25:41 - backend - INFO - Request completed: req-019, duration=0.92s, cost=$0.00258
+2026-02-04 11:29:13 - backend - INFO - Request started: req-020, session=demo-005, model=openai/gemini-3-flash
+2026-02-04 11:29:14 - backend - DEBUG - Prompt template applied: system_prompt.txt
+2026-02-04 11:29:15 - backend - DEBUG - LiteLLM call initiated with temperature=0.7
+2026-02-04 11:29:16 - backend - INFO - LLM response received successfully: 124 tokens, latency=2.11s
+2026-02-04 11:29:16 - backend - INFO - Request completed: req-020, duration=2.11s, cost=$0.00419
